@@ -1,0 +1,61 @@
+/*
+            Secret Room
+                |
+                |
+ Kitchen-----Hallway-----Library
+  Spoon         |           |
+                |           |
+            Entrance       Exit SPOON NEEDED
+*/
+# possible winning input UP LEFT PICK RIGHT RIGHT DOWN
+
+[States]
+Entrance No Spoon
+Hallway No Spoon
+Kitchen No Spoon
+Library No Spoon
+Secret Room No Spoon
+Exit No Spoon
+Entrance With Spoon
+Hallway With Spoon
+Kitchen With Spoon
+Library With Spoon
+Secret Room With Spoon
+Exit With Spoon
+End
+[Sigma]
+UP
+DOWN
+LEFT
+RIGHT
+PICK
+End
+[Rules]
+Entrance No Spoon, UP, Hallway No Spoon
+Hallway No Spoon, LEFT, Kitchen No Spoon
+Hallway No Spoon, RIGHT, Library No Spoon
+Hallway No Spoon, UP, Secret Room No Spoon
+Hallway No Spoon, DOWN, Entrance No Spoon
+Kitchen No Spoon, RIGHT, Hallway No Spoon
+Kitchen No Spoon, PICK, Kitchen With Spoon
+Secret Room No Spoon, DOWN, Hallway No Spoon
+Library No Spoon, LEFT, Hallway No Spoon
+Library No Spoon, DOWN, Exit No Spoon
+Exit No Spoon, UP, Library No Spoon
+Entrance With Spoon, UP, Hallway With Spoon
+Hallway With Spoon, LEFT, Kitchen With Spoon
+Hallway With Spoon, RIGHT, Library With Spoon
+Hallway With Spoon, UP, Secret Room With Spoon
+Hallway With Spoon, DOWN, Entrance With Spoon
+Kitchen With Spoon, RIGHT, Hallway With Spoon
+Secret Room With Spoon, DOWN, Hallway With Spoon
+Library With Spoon, LEFT, Hallway With Spoon
+Library With Spoon, DOWN, Exit With Spoon
+Exit With Spoon, UP, Library With Spoon
+End
+[Start]
+Entrance No Spoon
+End
+[Accept]
+Exit With Spoon
+End

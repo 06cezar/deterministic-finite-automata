@@ -1,0 +1,42 @@
+/*
+            Secret Room
+                |
+                |
+ Kitchen-----Hallway-----Library
+                |           |
+                |           |
+            Entrance       Exit
+*/
+
+[States]
+Entrance
+Hallway
+Kitchen
+Library
+Secret Room
+Exit
+End
+[Sigma]
+UP
+DOWN
+LEFT
+RIGHT
+End
+[Rules]
+Entrance, UP, Hallway
+Hallway, LEFT, Kitchen
+Hallway, RIGHT, Library
+Hallway, UP, Secret Room
+Hallway, DOWN, Entrance
+Kitchen, RIGHT, Hallway
+Secret Room, DOWN, Hallway
+Library, LEFT, Hallway 
+Library, DOWN, Exit
+Exit, UP, Library
+End
+[Start]
+Entrance
+End
+[Accept]
+Exit
+End

@@ -1,0 +1,34 @@
+/* 
+ operates on the alphabet {a,b} and accepts all strings that start and end with a (in q1 state) 
+ or that start end end with b (in r1 state)
+*/
+[States]
+s
+q1 
+q2 
+r1 
+r2
+End
+[Sigma]
+a 
+b 
+End
+[Rules]
+s, a, q1 
+s, b, r1 
+q1, a, q1 
+q1, b, q2 
+q2, a, q1 
+q2, b, q2 
+r1, a, r2 
+r1, b, r1 
+r2, a, r2
+r2, b, r1 
+End
+[Start]
+s
+End
+[Accept]
+q1 
+r1
+End

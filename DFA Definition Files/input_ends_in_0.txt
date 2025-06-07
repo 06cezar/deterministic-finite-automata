@@ -1,0 +1,23 @@
+# DFA that checks if input string ends in a 0
+[States] 
+q0 # Initial state
+q1 # Accept state
+End
+[Sigma]
+0
+1
+End
+[Rules]
+/* transition function 
+starts here */
+q0, 1, q1 
+q0, 0, q0
+q1, 1, q1
+q1, 0, q0
+End
+[Start]
+q0 
+End
+[Accept]
+q0
+End
