@@ -243,10 +243,10 @@ You will be prompted to enter:
   - `NOSEPARATOR` → `''` (no separator, like `abba`)
   - Custom → any string (e.g., `;`, `-`)
 
-- **Minimum string length** *(default: 5)*  
-- **Maximum string length** *(default: 6 × |Σ|)*  
-- **Number of input strings to generate** *(default: 1000)*  
-- **Number of different lengths to try** *(default: 100)*
+- **Minimum string length** *(default: `5`)*  
+- **Maximum string length** *(default: `6 × |Σ|`)*  
+- **Number of input strings to generate** *(default: `1000`)*  
+- **Number of different lengths to try** *(default: `100`)*
 
 Press `ENTER` to use the default value for any prompt.
 
@@ -340,7 +340,7 @@ With a PDA:
 - Later, `CHECK` if "SPOON" is on the top of the stack before allowing transition to the Exit
 
 This makes the game logic **cleaner and more powerful**, without needing to duplicate all states.
-You can check this game implementation in my PDA repository - link here later :)
+You can also check this [game implementation](https://github.com/06cezar/pushdown-automata?tab=readme-ov-file#bonus-pda-based-game---escape-the-room)!
 
 ## 🕹️ Game Map
 ```
