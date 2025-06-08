@@ -158,8 +158,11 @@ python3 emulateDFA.py <dfa_filename> <input_filename> [verbosity] [separator]
 `NOSEPARATOR` for no separator
 
 or any custom delimiter like ';'
+
+> ⚠️ If your separator is a shell-special character like ;, &, |, etc., wrap it in single quotes (';') to prevent shell misinterpretation.
 ```
 python3 emulateDFA.py example.dfa test_input.txt 1 NoSeparator
+python3 emulateDFA.py example.dfa test_input.txt 1 ';' 
 ```
 
 ## Custom exceptions 
