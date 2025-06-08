@@ -161,8 +161,8 @@ or any custom delimiter like ';'
 
 > ⚠️ If your separator is a shell-special character like ;, &, |, etc., wrap it in single quotes (';') to prevent shell misinterpretation.
 ```
-python3 emulateDFA.py example.dfa test_input.txt 1 NoSeparator
-python3 emulateDFA.py example.dfa test_input.txt 1 ';' 
+python3 emulateDFA.py even_num_1s.dfa testInput.txt 1 NoSeparator
+python3 emulateDFA.py even_num_1s.dfa semicolonInput.txt 1 ';' 
 ```
 
 ## Custom exceptions 
@@ -223,24 +223,85 @@ project/
   └── valid_inputs.txt
 ```
 ## Usage: Input Generator
+
+You can generate test inputs for your DFA either **interactively** or directly via the **command line**, with full control over settings like string length and symbol separator.
+
 ### Option 1: Run interactively
 ```
 python3 dfa_input_string_generator.py
 ```
-or run it on an IDE:) 
-You will be prompted for:
+Or simply **run it from your IDE** :)
 
-- **DFA Definition file name** (from `DFA Definition Files/`)
+You will be prompted to enter:
 
-**Example:**
+- **DFA Definition file name**  
+  *(Located in the `DFA Definition Files/` folder)*
+
+- **Separator (between symbols)**  
+  Options:
+  - `SPACE` → `' '` (space character, recommended)
+  - `NOSEPARATOR` → `''` (no separator, like `abba`)
+  - Custom → any string (e.g., `;`, `-`)
+
+- **Minimum string length** *(default: 5)*  
+- **Maximum string length** *(default: 6 × |Σ|)*  
+- **Number of input strings to generate** *(default: 1000)*  
+- **Number of different lengths to try** *(default: 100)*
+
+Press `ENTER` to use the default value for any prompt.
+
+#### Example run:
 ```
 Give DFA Definition file name: evenLength.txt
+Press ENTER to keep the default value for any argument.
+Give string separator (SPACE for ' ' / NOSEPARATOR for '' / custom, default: SPACE): ;
+Minimum length (default: 5): 
+Maximum length (default: 6 × |Σ|, where Σ is the alphabet of the DFA): 
+Number of inputs to generate (default: 1000): 
+How many different lengths to generate (default: 100): 
+701 inputs generated.
 ```
+
+Binary alphabet for that DFA - lengths from 5 to 12 - problem we discussed earlier - we should give bigger MAX_LENGTH values
+
 ### Option 2: Can be run from the CLI.
 ```
-python3 dfa_input_string_generator.py <dfa_filename>
+python3 dfa_input_string_generator.py <dfa_filename> [separator] [min_length] [max_length] [input_count] [length_count]
 ```
 `<dfa_filename>`: Name of the DFA file located in the `DFA Definition Files/` folder (ex: `evenLength.txt`).
+
+#### Parameters:
+
+- `<dfa_filename>` (required):  
+  The name of the DFA file in `DFA Definition Files/` (e.g., `evenLength.txt`)
+
+- `[separator]` (optional):  
+  `'SPACE'`, `'NOSEPARATOR'`, or any custom string (e.g., `';'`)  
+  Default: `'SPACE'`
+> ⚠️ If your separator is a shell-special character like ;, &, |, etc., wrap it in single quotes (';') to prevent shell misinterpretation.
+
+- `[min_length]` (optional):  
+  Minimum input string length  
+  Default: `5`
+
+- `[max_length]` (optional):  
+  Maximum input string length  
+  Default: `6 × |Σ|` (alphabet size)
+
+- `[input_count]` (optional):  
+  Number of input strings to generate  
+  Default: `1000`
+
+- `[length_count]` (optional):  
+  Number of distinct lengths to try  
+  Default: `100`
+
+#### Example:
+```
+python3 dfa_input_string_generator.py game.dfa SPACE 5 20 1000 100 
+python3 dfa_input_string_generator.py even_num_1s.dfa ';' 5 20    
+```
+> 💡 **Note**: If you omit any of the optional arguments, the script will fall back to their default values. Just make sure the arguments you do provide follow the correct order.
 
 # Bonus: DFA-Based Game - "Escape the Room"
 
